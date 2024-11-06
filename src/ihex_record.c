@@ -96,7 +96,7 @@ int ihex_rs_iterate_data(ihex_recordset_t* rs, uint_t *i, ihex_record_t **rec, u
 					return 0;
 				}
 			case IHEX_ESA:
-				offset = *(x->ihr_data) << 4;
+				offset = (x->ihr_data[0] << 12) + (x->ihr_data[1] << 4);
 				if (off)
 				{
 					*off = offset;
